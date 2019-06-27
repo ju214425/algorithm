@@ -27,20 +27,20 @@ struct SegmentTree {
         return tree[node] = whichof(l_init, r_init);
     }
     
+    ll update(int node, int begin, int end, int pos, ll val) {
+        if (end < pos || pos < begin) return tree[node];
+        if (begin == end) return tree[node] = val;
+        ll l_update = update(l_node, begin, mid, pos, val);
+        ll r_update = update(r_node, mid+1, end, pos, val);
+        return tree[node] = whichof(l_update, r_update);
+    }
+
     ll query(int node, int begin, int end, int l_pos, int r_pos) {
         if (end < l_pos || r_pos < begin) return MEANINGLESS;
         if (l_pos <= begin && end <= r_pos) return tree[node];
         ll l_query = query(l_node, begin, mid, l_pos, r_pos);
         ll r_query = query(r_node, mid+1, end, l_pos, r_pos);
         return whichof(l_query, r_query);
-    }
-    
-    ll update(int node, int begin, int end, int index, ll number) {
-    	if (end < index || index < begin) return tree[node];
-    	if (begin == end) return tree[node] = number;
-        ll l_update = update(l_node, begin, mid, index, number);
-        ll r_update = update(r_node, mid+1, end, index, number);
-    	return tree[node] = whichof(l_update, r_update);
     }
 
     virtual ll whichof(ll l, ll r) = 0;
