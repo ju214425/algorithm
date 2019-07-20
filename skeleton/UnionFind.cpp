@@ -12,6 +12,7 @@ struct UnionFind{
 	vector<ll> level;
 
 	UnionFind(ll size){
+		this->size = size;
 		parent.resize(size+1);
 		level.resize(size+1);
 	}
