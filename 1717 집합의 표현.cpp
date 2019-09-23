@@ -35,8 +35,8 @@ struct UnionFind{
 		y = find(y);
 		if(x == y) 
 			return;
-		if(level[x] > level[y]) 
-			swap(x, y);
+		// if(level[x] > level[y]) 
+		// 	swap(x, y);
 
 		parent[x] = y;
 

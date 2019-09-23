@@ -28,6 +28,7 @@ struct UnionFind{
 		if(parent[x] == x)
 			return x;	
 		return parent[x] = find(parent[x]);
+
 	}
 
 	void join(ll x, ll y){
@@ -42,6 +43,9 @@ struct UnionFind{
 
 		if(level[x] == level[y])
 			++level[y];
+	}
 
+	bool same_set(ll x, ll y){
+		return find(x) == find(y);
 	}
 };
