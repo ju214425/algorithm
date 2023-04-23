@@ -65,5 +65,4 @@ for item in list(C(zeroList, 3)):
         w, y = wall
         g[x][y] = 0
 
-print(answer)
-        
+print(answer)    
