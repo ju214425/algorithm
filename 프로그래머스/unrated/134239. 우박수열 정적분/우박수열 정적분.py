@@ -20,7 +20,6 @@ def solution(k, ranges):
     
     for r in ranges:
         a, b = r[0], r[1]
-        #s[i] = 0~i까지 적분값
         
         if not (0 <= a and a < len(s) and -len(s) < b and b <= 0):
             answer.append(-1)
