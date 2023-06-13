@@ -18,8 +18,6 @@ def solution(word):
     for i in range(1, 6):
         function(arr, i, 0, '')
     
-    # arr.sort()
-    
     arr = sorted(list(arr))
     
     for idx, value in enumerate(arr):
